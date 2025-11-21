@@ -157,13 +157,13 @@ class FreewillDataset(Dataset):
                 # Pad the second dimension (time)
                 trial_data = np.pad(trial_data, ((0, 0), (0, pad_len)), mode='constant')
         
-        # Convert to float32 tensor
-        eeg_tensor = torch.from_numpy(trial_data).float()
+        # Convert to float32 numpy array (PyTorch DataLoader will convert to tensor automatically)
+        eeg_array = trial_data.astype(np.float32)
         
         # Label
         label = int(sample_info['target_id'])
         
-        sample = {'eeg': eeg_tensor, 'label': label, 'info': sample_info}
+        sample = {'eeg': eeg_array, 'label': label, 'info': sample_info}
 
         if self.transform:
             sample = self.transform(sample)
