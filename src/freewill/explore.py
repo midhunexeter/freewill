@@ -4,7 +4,7 @@ from scipy.io import loadmat
 import pandas as pd
 from matplotlib import pyplot as plt
 
-path = "derivatives/matfiles/sub-01/ses-01/sub-01_ses-01_task-reachingandgrasping_eeg.mat"
+path = ".data/Freewill_EEG_Reaching_Grasping 2/derivatives/matfiles/sub-01/ses-01/sub-01_ses-01_task-reachingandgrasping_eeg.mat"
 
 data = loadmat(path, simplify_cells=True)['data']
 
