@@ -1,4 +1,5 @@
 import os
+import warnings
 import torch
 from torch.utils.data import Dataset
 from scipy.io import loadmat
@@ -45,6 +46,7 @@ class FreewillDataset(Dataset):
             
             sub_dir = os.path.join(self.root_dir, 'derivatives', 'matfiles', f'sub-{sub_id}')
             if not os.path.exists(sub_dir):
+                warnings.warn(f"Subject directory not found: {sub_dir}", UserWarning)
                 continue
                 
             for ses_name in os.listdir(sub_dir):
