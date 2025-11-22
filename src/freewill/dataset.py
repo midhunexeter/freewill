@@ -85,7 +85,8 @@ class FreewillDataset(Dataset):
                                 'target_id': row.get('TgtID', -1), # Example label
                                 # Store other metadata as needed
                                 'start_index': row.get('TrialStartIndex', 0),
-                                'end_index': row.get('TrialEndIndex', 0)
+                                'end_index': row.get('TrialEndIndex', 0),
+                                'acc_start_index': row.get('AccStartIndex', 0)
                             })
                             
                     except Exception as e:
